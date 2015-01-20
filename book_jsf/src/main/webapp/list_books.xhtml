@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://xmlns.jcp.org/jsf/html"
+		xmlns:f="http://xmlns.jcp.org/jsf/core">
+		<h:head>
+			<title>Список книг</title>
+			<h:messages infoStyle="color:blue" warnStyle="color:orange" errorStyle="color:red"/>
+			<h:dataTable id="booklist" value="#{bookEJB.findAllBooks()}" var="bk" border="1">
+	  			<h:column>
+	  				<f:facet name="header">
+	  					<h:outputText value="Title"/>
+	  				</f:facet>
+	  				<h:link outcome="viewBook.xtml?id=#{bk.id}" value="#{bk.title}"/>
+	  			</h:column>
+	  			<h:column>
+	  				<f:facet name="header">
+	  					<h:outputText value="Price"/>
+	  				</f:facet>	
+	  				<h:outputText value="#{bk.price}"/>
+	  			</h:column>
+	  			<h:column>
+	  				<f:facet name="header">
+	  					<h:outputText value="Description"/>
+	  				</f:facet>
+	  				<h:outputText value="#{bk.description}"/>
+	  			</h:column>
+	  		</h:dataTable>
+		</h:head>
+</html>
